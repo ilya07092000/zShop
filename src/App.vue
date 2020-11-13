@@ -1,14 +1,7 @@
 <template>
-  <div>
     <MainLayout>
       
     </MainLayout>
-  </div>
-  <!-- <div id="nav">
-   <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link> 
-  </div>
-  <router-view/>  -->
 </template>
 
 <script>
@@ -40,6 +33,19 @@ body {
 
 #app {
 	font-family: 'Hind Siliguri', sans-serif;
+}
+
+.btn {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.container {
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 15px;
 }
 </style>
 
