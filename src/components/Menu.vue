@@ -69,7 +69,6 @@ export default {
         let menu = document.querySelector('.nav__list');
         menu.addEventListener('mouseover', this.extendedContent);
         menu.addEventListener('mouseleave', this.closeContent);
-        this.menuHover();
     },
     beforeDestroy() {
         menu.removeEventListener('mouseover', this.extendedContent);
