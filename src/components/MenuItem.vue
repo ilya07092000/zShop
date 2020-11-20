@@ -24,6 +24,8 @@ export default {
 
 <style lang="scss" scoped>
     .nav__list {
+        list-style-type: none;
+        position: relative;
         &__item {
             position: relative;
             background: #484f54;
@@ -33,18 +35,46 @@ export default {
             }
         }
     }
+
+    .nav__list__item__link {
+        position: relative;
+        z-index: 999;
+        &::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: auto;
+            right: 0;
+            width: 0%;
+            height: 100%;
+            background-color: #7b7b7b;
+            z-index: -1;
+            transition: all 300ms ease;
+        }
+    }
+
+    .nav__list__item__link:hover.nav__list__item__link::before {
+        width: 100%;
+        top: 0; 
+        left: 0; 
+        right: 0;
+        z-index: -1;
+    }
+
     .nav__list__item__extended {
         list-style-type: none;
         position: absolute;
+        width: 100%;
         top: 0;
         left: 100%;
-        z-index: -1;
-        background-color: rgb(150, 144, 144);
+        z-index: 99;
         transform: scaleY(0);
         transform-origin: top;
+        opacity: 0;
         transition: .2s linear;
         &.show {
             z-index: 99;
+            opacity: 1;
             transform: scaleY(1);
         }
     }

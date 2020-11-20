@@ -93,13 +93,5 @@ export default {
     .nav__list {
         list-style-type: none;
         position: relative;
-        &__item {
-            position: relative;
-            background: #484f54;
-            text-transform: uppercase;
-            &:not(:last-child) {
-                border-bottom: 1px solid #665b5b;
-            }
-        }
     }
 </style>
