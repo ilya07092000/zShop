@@ -114,6 +114,9 @@
       SwiperSlide,
       Autoplay
     },
+    computed: {
+      
+    },
     methods: {
      
     },

@@ -8,6 +8,10 @@
 import MainLayout from '@/layouts/MainLayout'
 
 export default {
+  created() {
+    this.$store.dispatch('initProducts');
+    console.log(this.$store.products);
+  },
   components: {
     MainLayout,
   }
