@@ -20,7 +20,6 @@ export default createStore({
     products: state => {
       return state.products
     },
-    currentCategory: state => category => state.products[category]
   },
   modules: {
   }
