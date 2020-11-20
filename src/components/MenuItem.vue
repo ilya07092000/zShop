@@ -1,6 +1,11 @@
 <template>
    <li class="nav__list__item">
-        <router-link class="nav__list__item__link" :data-hover="extendedContent" to="/">{{meuItem}}</router-link>
+        <router-link class="nav__list__item__link" :data-hover="extendedContent" :to="{name: 'products', params: {product: meuItem}}" v-if="Array.isArray(product)">{{meuItem}}
+
+        </router-link>
+        <router-link class="nav__list__item__link" :data-hover="extendedContent" v-else :to="{name: 'category', params: {product: meuItem}}">{{meuItem}}
+
+        </router-link>
         <ul class="nav__list__item__extended" v-if="!Array.isArray(product)" :id="meuItem">
             <MenuItem v-for="(value, key) in product" :product="value" :meuItem="key"></MenuItem>
         </ul>

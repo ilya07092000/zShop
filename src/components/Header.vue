@@ -2,9 +2,9 @@
     <header>
         <div class="container">
             <div class="header__inner">
-                <p class="header__logo">
+                <router-link class="header__logo" to="/">
                     Zshop
-                </p>
+                </router-link>
                 <div class="header__info">
                     <a class="header__tel" href="tel:(067) 228-13-17">(067) 228-13-17</a>
                     <button class="btn header__cb">Callback</button>
@@ -30,6 +30,8 @@
         letter-spacing: 0.10em;
         width: 30%;
         text-transform: uppercase;
+        color: black;
+        text-decoration: none;
     }
     &__info {
         width: 70%;
