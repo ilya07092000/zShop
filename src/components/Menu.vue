@@ -79,7 +79,7 @@ export default {
 
 <style lang="scss" scoped>
     aside {
-        width: 25%;
+        flex: 0 0 250px;
     }
 
     .aside__title {
