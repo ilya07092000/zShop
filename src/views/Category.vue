@@ -3,43 +3,46 @@
         <div class="category__header">
             {{ pageTitle }}
         </div>
-        <div class="category__list">
+        <div class="category__list" v-if="Object.keys(categories) != 0">
             <div class="category__list__item">
                 <CategoryItem v-for="(category, name) in categories" :category="category" :name="name"></CategoryItem>
             </div>
         </div>
+        <Empty v-else type="category"></Empty>
     </div>
 </template>
 
 <script>
 import CategoryItem from '../components/CategoryItem.vue';
+import Empty from '../components/Empty';
 
 export default {
    computed: {
         categories() {
             let products = this.$store.getters.products;
+            let found;
 
             function findCat(items, cat) {
                 for(let key in items) {
                     if(key == cat) {
-                        return items[key]
+                        found = items[key];
                     }
-
-                    if(!Array.isArray(items[key])) {
-                        return findCat(items[key], cat)
+                    else if (!Array.isArray(items[key])) {
+                        findCat(items[key], cat)
                     }
-                }
-            }
+                };
+            };
 
-            let currProd = findCat(products, this.$route.params.product);
-            return currProd
+            findCat(products, this.$route.params.product);
+            return found;
         },
         pageTitle() {
             return this.$route.params.product
         }
     },
     components: {
-        CategoryItem
+        CategoryItem,
+        Empty
     }
 }
 </script>

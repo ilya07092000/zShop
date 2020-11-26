@@ -37,6 +37,8 @@ body {
 
 #app {
 	font-family: 'Hind Siliguri', sans-serif;
+  min-height: 100vh;
+  overflow-x: hidden;
 }
 
 .btn {

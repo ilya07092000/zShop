@@ -37,7 +37,7 @@ export default {
         margin-top: 10px;
     }
     .content {
-        flex: 1;
+       width: 80%;
     }
     
     .slide-enter-active {
@@ -49,12 +49,12 @@ export default {
     }
 
     .slide-enter-from {
-        transform: translateX(-50px);
+        transform: translateX(-30px);
         opacity: 0;
     }
 
     .slide-leave-to {
-        transform: translateX(50px);
+        transform: translateX(30px);
         opacity: 0;
     }
 

@@ -31,6 +31,9 @@ export default {
                 ra: {
 
                 }
+            },
+            gg: {
+                
             }
         }
     },

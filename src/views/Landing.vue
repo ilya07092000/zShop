@@ -30,11 +30,11 @@
     .landing {
         padding: 0 20px;   
     }
-    // .slide__img {
-    //     max-width: 100%;
-    //     width: 100%;
-    //     height: auto;
-    // }
+    .slide__img {
+        max-width: 100%;
+        width: 100%;
+        height: auto;
+    }
 </style>
 
 <style lang="scss">

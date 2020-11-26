@@ -2,16 +2,19 @@
     <div class="products__wrapper">
         <div class="products__header">
                 <p class="products__title">{{ pageTitle }}</p>
-                <p class="products__quantity">{{ products.length }}</p>
+                <p class="products__quantity">{{ products ? products.length : 0 }}</p>
         </div>
-        <div class="products">
+        <div class="products" v-if="products">
             <Product v-for="product in products" :product="product" :key="product.id"></Product>
         </div>
+
+        <Empty v-else type="category"></Empty>
     </div>
 </template>
 
 <script>
 import Product from '../components/Product';
+import Empty from '../components/Empty';
 
 export default {
     name: 'Products',
@@ -39,7 +42,8 @@ export default {
         }
     },
     components : {
-        Product
+        Product,
+        Empty
     },
 }
 </script>

@@ -1,6 +1,6 @@
 <template>
-    <router-link class="category__link" :to="name">
-        {{name }}
+    <router-link class="category__link" :to="{name: 'products', params: {product: name}}">
+        {{ name }}
     </router-link>
 </template>
 
