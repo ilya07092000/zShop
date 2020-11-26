@@ -6,35 +6,18 @@
             :pagination="{ clickable: true }"
             :loop=true
             :autoplay="{delay: 2000}"
-            :speed=1300
-            @swiper="onSwiper"
-            @slideChange="onSlideChange">
+            :speed=1300>
             <swiper-slide>
                 <div class="slide__container">
                     <img class="slide__img" src="../assets/img/slide1.jpg" alt="">
                 </div>
             </swiper-slide>
-            <swiper-slide>
+             <swiper-slide>
                 <div class="slide__container">
                     <img class="slide__img" src="../assets/img/slide1.jpg" alt="">
                 </div>
             </swiper-slide>
-            <swiper-slide>
-                <div class="slide__container">
-                    <img class="slide__img" src="../assets/img/slide1.jpg" alt="">
-                </div>
-            </swiper-slide>
-            <swiper-slide>
-                <div class="slide__container">
-                    <img class="slide__img" src="../assets/img/slide1.jpg" alt="">
-                </div>
-            </swiper-slide>
-            <swiper-slide>
-                <div class="slide__container">
-                    <img class="slide__img" src="../assets/img/slide1.jpg" alt="">
-                </div>
-            </swiper-slide>
-            <swiper-slide>
+             <swiper-slide>
                 <div class="slide__container">
                     <img class="slide__img" src="../assets/img/slide1.jpg" alt="">
                 </div>
@@ -47,11 +30,11 @@
     .landing {
         padding: 0 20px;   
     }
-    .slide__img {
-        max-width: 100%;
-        width: 100%;
-        height: auto;
-    }
+    // .slide__img {
+    //     max-width: 100%;
+    //     width: 100%;
+    //     height: auto;
+    // }
 </style>
 
 <style lang="scss">
@@ -101,6 +84,7 @@
 
   import { Swiper, SwiperSlide } from 'swiper/vue';
 
+  import 'swiper/swiper-bundle.css';  
   import 'swiper/swiper.scss';
   import 'swiper/components/navigation/navigation.scss';
   import 'swiper/components/pagination/pagination.scss';

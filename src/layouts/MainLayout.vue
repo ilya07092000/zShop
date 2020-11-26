@@ -5,7 +5,11 @@
           <div class="divider">
                <Menu></Menu>
                <div class="content">
-                   <router-view></router-view>
+                   <router-view v-slot="{ Component }">
+                        <transition name="slide" mode="out-in">
+                            <component :key="$route.path" :is="Component" />
+                        </transition>
+                    </router-view>
                </div>
           </div>
        </div>
@@ -33,6 +37,31 @@ export default {
         margin-top: 10px;
     }
     .content {
-        width: 75%;
+        flex: 1;
+    }
+    
+    .slide-enter-active {
+        transition: all .1s linear;
+    }
+
+    .slide-leave-active {
+        transition: all .1s linear;
+    }
+
+    .slide-enter-from {
+        transform: translateX(-50px);
+        opacity: 0;
+    }
+
+    .slide-leave-to {
+        transform: translateX(50px);
+        opacity: 0;
+    }
+
+    .slide-enter-to,
+    .slide-leave-from {
+        transform: translateX(0px);
+        opacity: 1;
     }
 </style>
+
