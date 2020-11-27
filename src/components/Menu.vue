@@ -80,6 +80,7 @@ export default {
 <style lang="scss" scoped>
     aside {
         width: 20%;
+        z-index: 100;
     }
 
     .aside__title {

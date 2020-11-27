@@ -49,7 +49,8 @@ export default {
 
 <style lang="scss" scoped>
     .category {
-        padding: 0 20px;
+        padding: 0 20px 20px 20px;
+        background-color: #fff;
         &__header {
             font-size: 30px;
             text-transform: uppercase;

@@ -38,30 +38,39 @@ export default {
     }
     .content {
        width: 80%;
-    }
-    
-    .slide-enter-active {
-        transition: all .1s linear;
+       z-index: 99;
     }
 
     .slide-leave-active {
-        transition: all .1s linear;
+        animation: slide-in 1s;
     }
 
-    .slide-enter-from {
-        transform: translateX(-30px);
-        opacity: 0;
+    @keyframes slide-in {
+        0% {
+            transform: scale(1), translateX(0);
+        }
+        50% {
+            transform: scale(0.95);
+        }
+        100% {
+            transform: translateX(110%);
+        }
     }
 
-    .slide-leave-to {
-        transform: translateX(30px);
-        opacity: 0;
+    .slide-enter-active {
+        animation: slide-out 1s;
     }
 
-    .slide-enter-to,
-    .slide-leave-from {
-        transform: translateX(0px);
-        opacity: 1;
+    @keyframes slide-out {
+        0% {
+            transform: translateX(-110%);
+        }
+        50% {
+           transform: scale(0.95);
+        }
+        100% {
+           transform: scale(1), translateX(0);
+        }
     }
 </style>
 

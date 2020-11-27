@@ -51,6 +51,7 @@ export default {
 <style lang="scss" scoped>
     .products__wrapper {
         padding: 0 20px;
+        background-color: #fff;
     }
 
     .products {
