@@ -7,7 +7,6 @@
         <div class="products" v-if="products">
             <Product v-for="product in products" :product="product" :key="product.id"></Product>
         </div>
-
         <Empty v-else type="category"></Empty>
     </div>
 </template>
@@ -20,22 +19,8 @@ export default {
     name: 'Products',
     computed: {
         products() {
-            let products = this.$store.getters.products;
-
-            function findCat(items, cat) {
-                for(let key in items) {
-                    if(key == cat) {
-                        return items[key];
-                    }
-
-                    if(!Array.isArray(items[key])) {
-                        return findCat(items[key], cat);
-                    }
-                }
-            }
-
-            let currProd = findCat(products, this.$route.params.product);
-            return currProd
+            let category = this.$route.params.product;
+            return this.$store.getters.getProductsByCat(category);
         },
         pageTitle() {
             return this.$route.params.product
