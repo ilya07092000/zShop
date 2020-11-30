@@ -1,12 +1,12 @@
 <template>
     <div class="products__item">
         <p class="products__item__title">
-            <router-link :to="{name: 'product', params: { id: product.id }}" class="products__item__link">
+            <router-link :to="{name: 'productPage', params: { product: this.$route.params.product, id: product.id }}" class="products__item__link">
                 {{ product.title }}
             </router-link>
         </p>
         <div class="products__item__photo">
-            <router-link :to="{name: 'product', params: { id: product.id }}" class="products__item__link">
+            <router-link :to="{name: 'productPage', params: { product: this.$route.params.product, id: product.id }}" class="products__item__link">
                 <img class="products__item__photo__icon" :src="product.images[0]" alt="">
             </router-link>
         </div>
@@ -16,7 +16,7 @@
 
 <script>
 export default {
-    props: ['product']
+    props: ['product'],
 }
 </script>
 
