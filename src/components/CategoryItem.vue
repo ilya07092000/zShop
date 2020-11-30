@@ -1,5 +1,8 @@
 <template>
-    <router-link class="category__link" :to="{name: 'products', params: {product: name}}">
+    <router-link class="category__link" :to="{name: 'products', params: {product: name}}" v-if="Array.isArray(category)">
+        {{ name }}
+    </router-link>
+    <router-link class="category__link" :to="{name: 'category', params: {product: name}}" v-else>
         {{ name }}
     </router-link>
 </template>

@@ -1,15 +1,15 @@
 export default {
     computers: [
         {id: '1', name: 'pc1', images: ['/img/products/hp1.jpg', '/img/products/hp2.jpg'], price: "14 300", title: 'HP 290 G1 MT'},
-        {id: '1', name: 'pc1', images: ['/img/products/hp1.jpg', '/img/products/hp2.jpg'], price: "14 300", title: 'HP 290 G1 MT'},
-        {id: '1', name: 'pc1', images: ['/img/products/hp1.jpg', '/img/products/hp2.jpg'], price: "14 300", title: 'HP 290 G1 MT'},
-        {id: '1', name: 'pc1', images: ['/img/products/hp1.jpg', '/img/products/hp2.jpg'], price: "14 300", title: 'HP 290 G1 MT'},
-        {id: '1', name: 'pc1', images: ['/img/products/hp1.jpg', '/img/products/hp2.jpg'], price: "14 300", title: 'HP 290 G1 MT'},
-        {id: '1', name: 'pc1', images: ['/img/products/hp1.jpg', '/img/products/hp2.jpg'], price: "14 300", title: 'HP 290 G1 MT'},
-        {id: '1', name: 'pc1', images: ['/img/products/hp1.jpg', '/img/products/hp2.jpg'], price: "14 300", title: 'HP 290 G1 MT'},
-        {id: '1', name: 'pc1', images: ['/img/products/hp1.jpg', '/img/products/hp2.jpg'], price: "14 300", title: 'HP 290 G1 MT'},
-        {id: '1', name: 'pc1', images: ['/img/products/hp1.jpg', '/img/products/hp2.jpg'], price: "14 300", title: 'HP 290 G1 MT'},
-        {id: '1', name: 'pc1', images: ['/img/products/hp1.jpg', '/img/products/hp2.jpg'], price: "14 300", title: 'HP 290 G1 MT'},
+        // {id: '1', name: 'pc1', images: ['/img/products/hp1.jpg', '/img/products/hp2.jpg'], price: "14 300", title: 'HP 290 G1 MT'},
+        // {id: '1', name: 'pc1', images: ['/img/products/hp1.jpg', '/img/products/hp2.jpg'], price: "14 300", title: 'HP 290 G1 MT'},
+        // {id: '1', name: 'pc1', images: ['/img/products/hp1.jpg', '/img/products/hp2.jpg'], price: "14 300", title: 'HP 290 G1 MT'},
+        // {id: '1', name: 'pc1', images: ['/img/products/hp1.jpg', '/img/products/hp2.jpg'], price: "14 300", title: 'HP 290 G1 MT'},
+        // {id: '1', name: 'pc1', images: ['/img/products/hp1.jpg', '/img/products/hp2.jpg'], price: "14 300", title: 'HP 290 G1 MT'},
+        // {id: '1', name: 'pc1', images: ['/img/products/hp1.jpg', '/img/products/hp2.jpg'], price: "14 300", title: 'HP 290 G1 MT'},
+        // {id: '1', name: 'pc1', images: ['/img/products/hp1.jpg', '/img/products/hp2.jpg'], price: "14 300", title: 'HP 290 G1 MT'},
+        // {id: '1', name: 'pc1', images: ['/img/products/hp1.jpg', '/img/products/hp2.jpg'], price: "14 300", title: 'HP 290 G1 MT'},
+        // {id: '1', name: 'pc1', images: ['/img/products/hp1.jpg', '/img/products/hp2.jpg'], price: "14 300", title: 'HP 290 G1 MT'},
     ],
     components: {
         videocards: [

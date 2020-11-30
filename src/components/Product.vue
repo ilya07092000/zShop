@@ -1,10 +1,14 @@
 <template>
     <div class="products__item">
         <p class="products__item__title">
-            {{product.title}}
+            <router-link :to="{name: 'product', params: { id: product.id, product: product }}" class="products__item__link">
+                {{ product.title }}
+            </router-link>
         </p>
         <div class="products__item__photo">
-            <img class="products__item__photo__icon" :src="product.images[0]" alt="">
+            <router-link :to="{name: 'product', params: { id: product.id, product: product }}" class="products__item__link">
+                <img class="products__item__photo__icon" :src="product.images[0]" alt="">
+            </router-link>
         </div>
         <p class="product__price">{{product.price}} <span class="product__currency">грн</span></p>
     </div>
@@ -36,6 +40,10 @@ export default {
         &__title {
             font-size: 20px;
             font-weight: 500;
+        }
+        &__link {
+            text-decoration: none;
+            color: inherit;
         }
     }
     .product__price {
