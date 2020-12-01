@@ -8,24 +8,23 @@
 import MainLayout from '@/layouts/MainLayout'
 
 export default {
-  created() {
-    this.$store.dispatch('initProducts');
-    console.log(this.$store.products);
-  },
-  components: {
-    MainLayout,
-  }
+	created() {
+    	this.$store.dispatch('initProducts');
+    	console.log(this.$store.products);
+  	},
+	components: {
+    	MainLayout,
+  	}
 }
 </script>
 
 <style lang="scss">
 
 body {
-  margin: 0;
-  padding: 0;
+	margin: 0;
+	padding: 0;
 }
 
-  
 *,
 ::after,
 ::before {
@@ -37,14 +36,14 @@ body {
 
 #app {
 	font-family: 'Hind Siliguri', sans-serif;
-  min-height: 100vh;
-  overflow-x: hidden;
+  	min-height: 100vh;
+  	overflow-x: hidden;
 }
 
 .btn {
-  background: transparent;
-  border: none;
-  cursor: pointer;
+  	background: transparent;
+  	border: none;
+  	cursor: pointer;
 }
 
 .container {

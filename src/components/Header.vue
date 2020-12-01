@@ -8,12 +8,23 @@
                 <div class="header__info">
                     <a class="header__tel" href="tel:(067) 228-13-17">(067) 228-13-17</a>
                     <button class="btn header__cb">Callback</button>
-                    <button class="btn header__quality">Quality department</button>
+                    <button class="btn header__quality" @click="$emit('modal-toggler', true)">Quality department</button>
                 </div>
             </div>
         </div>
     </header>
 </template>
+
+<script>
+export default {
+    props: ['modal'],
+    // methods: {
+    //     showModal() {
+    //         this.$emit('show-modal');
+    //     }
+    // }
+}
+</script>
 
 <style lang="scss" scoped>
 @import '../css/main';
