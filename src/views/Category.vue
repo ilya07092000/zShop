@@ -1,11 +1,11 @@
 <template>
     <div class="category">
         <div class="category__header">
-            {{ pageTitle }}
+            {{ categories }}
         </div>
         <div class="category__list" v-if="Object.keys(categories) != 0">
             <div class="category__list__item">
-                <CategoryItem v-for="(category, name) in categories" :category="category" :name="name"></CategoryItem>
+                <CategoryItem v-for="(category, name) in categoryProds" :category="category" :name="name" :key="name"></CategoryItem>
             </div>
         </div>
         <Empty v-else type="category"></Empty>
@@ -17,27 +17,13 @@ import CategoryItem from '../components/CategoryItem.vue';
 import Empty from '../components/Empty';
 
 export default {
-   computed: {
+    computed: {
         categories() {
-            let products = this.$store.getters.products;
-            let found;
-
-            function findCat(items, cat) {
-                for(let key in items) {
-                    if(key == cat) {
-                        found = items[key];
-                    }
-                    else if (!Array.isArray(items[key])) {
-                        findCat(items[key], cat)
-                    }
-                };
-            };
-
-            findCat(products, this.$route.params.product);
-            return found;
+            return this.$route.params.products
         },
-        pageTitle() {
-            return this.$route.params.product
+        categoryProds() {
+            let category = this.$route.params.products;
+            return this.$store.getters.getProductsByCategory(category);
         }
     },
     components: {

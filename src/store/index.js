@@ -20,6 +20,7 @@ export default createStore({
     products: state => {
         return state.products
     },
+    getProductsByCategory: state => cat => state.products[cat],
     getProductsByCat: state => cat => {
 		let found = '';
         findCat(state, cat);

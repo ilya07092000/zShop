@@ -8,12 +8,17 @@ const routes = [
     component: Landing
   },
   {
-    path: '/:product',
+    path: '/:products',
     name: 'products',
     component: () => import('../views/Products.vue'),
   },
   {
-    path: '/category/:product',
+    path: '/category/:cat/:products',
+    name: 'productsCat',
+    component: () => import('../views/Products.vue'),
+  },
+  {
+    path: '/category/:products',
     name: 'category',
     component: () => import('../views/Category.vue')
   },

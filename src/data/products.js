@@ -9,28 +9,11 @@ export default {
         cpu: [
             {id: '3', name: 'cpu1', images: ['/img/products/cpu1.jpg', '/img/products/cpu2.jpg'], price: "5 000", title: 'Processor AMD Ryzen 5 3500X 3.6GHz/32MB'}
         ],
-        other: {
-            bla: [
+        bla: [
                 {id: '4', name: 'bla1', images: ['/img/products/cpu1.jpg', '/img/products/cpu2.jpg'], price: "5 000", title: 'Processor AMD Ryzen 5 3500X 3.6GHz/32MB'}
-            ],
-            vla: [
-                {id: '4', name: 'vla1', images: ['/img/products/cpu1.jpg', '/img/products/cpu2.jpg'], price: "5 000", title: 'Processor AMD Ryzen 5 3500X 3.6GHz/32MB'}
-            ]
-        },
-        faa: {
-            la: {
-                ra: {
-
-                }
-            },
-            gg: {
-                
-            }
-        }
-    },
-    mon: {
-        fon: [
-            
+        ],
+        vla: [
+            {id: '4', name: 'vla1', images: ['/img/products/cpu1.jpg', '/img/products/cpu2.jpg'], price: "5 000", title: 'Processor AMD Ryzen 5 3500X 3.6GHz/32MB'}
         ]
     }
 }

@@ -19,11 +19,11 @@ export default {
     name: 'Products',
     computed: {
         products() {
-            let category = this.$route.params.product;
+            let category = this.$route.params.products;
             return this.$store.getters.getProductsByCat(category);
         },
         pageTitle() {
-            return this.$route.params.product
+            return this.$route.params.products;
         }
     },
     components : {
