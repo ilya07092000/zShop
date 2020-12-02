@@ -3,7 +3,7 @@
         <p class="aside__title">Catalog</p>
         <nav>
             <ul class="nav__list">
-                <MenuItem v-for="(value, key, index) in products" :product="value" :meuItem="key"></MenuItem>
+                <MenuItem v-for="(value, key, index) in products" :product="value" :meuItem="key" :key="index"></MenuItem>
             </ul>
         </nav>
     </aside>
@@ -70,7 +70,7 @@ export default {
         menu.addEventListener('mouseover', this.extendedContent);
         menu.addEventListener('mouseleave', this.closeContent);
     },
-    beforeDestroy() {
+    beforeUnmount() {
         menu.removeEventListener('mouseover', this.extendedContent);
         menu.removeEventListener('mouseleave ', this.closeContent);
     }

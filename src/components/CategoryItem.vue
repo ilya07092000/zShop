@@ -1,15 +1,22 @@
 <template>
-    <router-link class="category__link" :to="{name: 'products', params: {product: name}}" v-if="Array.isArray(category)">
-        {{ name }}
-    </router-link>
-    <router-link class="category__link" :to="{name: 'category', params: {product: name}}" v-else>
+    <router-link 
+        v-for="(value, key) in category" 
+        :key="key"
+        class="category__link"
+        :data-hover="extendedContent" 
+        :to="{name: 'productsCat', params: {products: name, cat: categories }}">
         {{ name }}
     </router-link>
 </template>
 
 <script>
 export default {
-    props: ['category', 'name']
+    props: ['category', 'name'],
+    computed: {
+        categories() {
+            return this.$route.params.products
+        }
+    }
 }
 </script>
 
