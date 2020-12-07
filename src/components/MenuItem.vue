@@ -3,16 +3,14 @@
         <router-link v-if="Array.isArray(product)" class="nav__list__item__link" :data-hover="extendedContent" :to="{name: 'products', params: {products: meuItem}}">{{meuItem}}
 
         </router-link>
-        <router-link v-else class="nav__list__item__link" :data-hover="extendedContent" :to="{name: 'category', params: {products: meuItem}}">{{meuItem}}
+        <router-link v-else class="nav__list__item__link" :data-hover="extendedContent" :to="{name: 'category', params: {category: meuItem}}">{{meuItem}}
 
         </router-link>
         <ul class="nav__list__item__extended" v-if="!Array.isArray(product)" :id="meuItem">
-            <li class="nav__list__item">
+            <li class="nav__list__item" v-for="(value, key) in product" :key="value">
                 <router-link 
-                    v-for="(value, key) in product" 
-                    :key="value"
                     class="nav__list__item__link" 
-                    :to="{name: 'productsCat', params: {products: key, cat: meuItem}}">
+                    :to="{name: 'products', params: { products: key }}">
                     {{key}}
                 </router-link>
             </li>

@@ -3,8 +3,7 @@
         v-for="(value, key) in category" 
         :key="key"
         class="category__link"
-        :data-hover="extendedContent" 
-        :to="{name: 'productsCat', params: {products: name, cat: categories }}">
+        :to="{name: 'products', params: {products: name }}">
         {{ name }}
     </router-link>
 </template>

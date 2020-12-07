@@ -3,7 +3,7 @@
         <div class="category__header">
             {{ categories }}
         </div>
-        <div class="category__list" v-if="Object.keys(categories) != 0">
+        <div class="category__list" v-if="categories">
             <div class="category__list__item">
                 <CategoryItem v-for="(category, name) in categoryProds" :category="category" :name="name" :key="name"></CategoryItem>
             </div>
@@ -17,12 +17,13 @@ import CategoryItem from '../components/CategoryItem.vue';
 import Empty from '../components/Empty';
 
 export default {
+    name: 'Category',
     computed: {
         categories() {
-            return this.$route.params.products
+            return this.$route.params.category;
         },
         categoryProds() {
-            let category = this.$route.params.products;
+            let category = this.$route.params.category;
             return this.$store.getters.getProductsByCategory(category);
         }
     },
@@ -35,7 +36,6 @@ export default {
 
 <style lang="scss" scoped>
     .category {
-        padding: 0 20px 20px 20px;
         background-color: #fff;
         &__header {
             font-size: 30px;

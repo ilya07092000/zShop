@@ -5,7 +5,7 @@
                 <p class="products__quantity">{{ products ? products.length : 0 }}</p>
         </div>
         <div class="products" v-if="products">
-            <Product v-for="product in products" :product="product" :key="product.id"></Product>
+            <Product v-for="product in products" :product="product"></Product>
         </div>
         <Empty v-else type="category"></Empty>
     </div>
@@ -35,7 +35,6 @@ export default {
 
 <style lang="scss" scoped>
     .products__wrapper {
-        padding: 0 20px;
         background-color: #fff;
     }
 

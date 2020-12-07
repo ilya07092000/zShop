@@ -27,9 +27,6 @@
 </template>
 
 <style lang="scss" scoped>
-    .landing {
-        padding: 0 20px;   
-    }
     .slide__img {
         max-width: 100%;
         width: 100%;
@@ -57,7 +54,7 @@
             content: '';
             position: absolute;
             top: -64%;
-            left: -60%;
+            left: -63%;
             width: 230%;
             height: 230%;
             border-radius: 50%;

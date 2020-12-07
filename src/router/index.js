@@ -8,26 +8,20 @@ const routes = [
     component: Landing
   },
   {
-    path: '/:products',
     name: 'products',
+    path: '/:products',
     component: () => import('../views/Products.vue'),
   },
   {
-    path: '/category/:cat/:products',
-    name: 'productsCat',
-    component: () => import('../views/Products.vue'),
-  },
-  {
-    path: '/category/:products',
     name: 'category',
-    component: () => import('../views/Category.vue')
+    path: '/category-:category',
+    component: () => import('../views/Category.vue'),
   },
   {
     path: '/:product/:id',
-    name: 'productPage',
-    props: true,
+    name: 'product-page',
     component: () => import('../views/ProductPage.vue')
-  }
+  },
 ]
 
 const router = createRouter({

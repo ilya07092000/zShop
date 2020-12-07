@@ -13,7 +13,12 @@
           <div class="divider">
                <Menu></Menu>
                <div class="content">
-                   <router-view v-slot="{ Component }">
+                    <div class="router">
+                        <router-link v-for="link in routePath" :to="link.route">
+                            {{ link.name }} / 
+                        </router-link>
+                    </div>
+                    <router-view v-slot="{ Component }">
                         <transition name="slide" mode="out-in">
                             <component :key="$route.path" :is="Component" />
                         </transition>
@@ -33,6 +38,7 @@ export default {
     data() {
         return {
             modal: false,
+            routePath: [],
         }
     },
     components: {
@@ -43,6 +49,24 @@ export default {
     methods: {
         modalToggler(value, xq) {
             this.modal = value;
+        }
+    },
+    watch: {
+        $route() {
+            this.routePath = [];
+            if(this.$route.fullPath.length > 1) {
+                let routes = this.$route.href.trim().split('/');
+
+                for(let i = 0; i < routes.length; i++) {
+                    if(i == 0) {
+                        this.routePath.push({name: 'home', route: '/'})
+                    } else if(routes.length - i > 1) {
+                        this.routePath.push({name: routes[i], route: `/${routes[i]}`})
+                    } else {
+                        this.routePath.push({name: routes[i], route: `${routes[i]}`})
+                    }
+                }
+            }
         }
     }
 }
@@ -59,6 +83,7 @@ export default {
     .content {
        width: 80%;
        z-index: 99;
+       padding: 0 20px;
     }
 
     .slide-leave-active {
