@@ -6,9 +6,17 @@
                     Zshop
                 </router-link>
                 <div class="header__info">
-                    <a class="header__tel" href="tel:(067) 228-13-17">(067) 228-13-17</a>
-                    <button class="btn header__cb">Callback</button>
-                    <button class="btn header__quality" @click="$emit('modal-toggler', true)">Quality department</button>
+                   <div class="header__info__col">
+                        <a class="header__tel" href="tel:(067) 228-13-17">(067) 228-13-17</a>
+                        <button class="btn header__cb">Callback</button>
+                        <button class="btn header__quality" @click="$emit('modal-toggler', true)">Quality department</button>
+                   </div>
+                   <div class="header__info__col">
+                       <button class="basket">
+                           <!-- {{ basket > 0 ? basket : 'Empty basket' }} -->
+                           {{basket}}
+                       </button>
+                   </div>
                 </div>
             </div>
         </div>
@@ -22,7 +30,21 @@ export default {
     //     showModal() {
     //         this.$emit('show-modal');
     //     }
-    // }
+    // },
+    computed: {
+        basket() {
+            let basket = this.$store.getters.getBasket;
+
+            let sum = 0;
+
+            if(basket.length == 1) {
+                sum = basket[0].price * basket[0].qty;
+            } else if(basket.length) {
+                sum = basket.reduce((prev, current) => prev.price * prev.qty + current.price * current.qty);
+            }
+            return sum;
+        }
+    }
 }
 </script>
 
@@ -52,7 +74,7 @@ header {
     &__info {
         width: 70%;
         display: flex;
-        justify-content: flex-start;
+        justify-content: space-between;
         align-items: center;
     }
     &__tel {

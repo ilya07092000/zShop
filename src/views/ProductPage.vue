@@ -78,7 +78,7 @@
                <div class="product__right__inner">
                    <div class="product__right__top">
                        <p class="product__price">{{ product.price }} uah</p>
-                       <button class="btn-buy">Buy</button>
+                       <button class="btn-buy" @click="addToBasket">Buy</button>
                     </div>
                </div>
            </div>
@@ -132,6 +132,13 @@ export default {
         setThumbsSwiper(swiper) {
             this.thumbsSwiper = swiper;
         },
+        addToBasket() {
+            this.$store.dispatch('addProduct', {
+                id: this.product.id,
+                price: this.product.price,
+                qty: 1
+            });
+        }
     },
     components: {
         Swiper,
