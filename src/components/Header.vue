@@ -29,6 +29,11 @@ export default {
 <style lang="scss" scoped>
 @import '../css/main';
 
+header {
+    box-shadow: 0 -10px 15px 0;
+    background: #2ac6177a;
+}
+
 .header {
     &__inner {
          display: flex;

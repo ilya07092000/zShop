@@ -13,11 +13,13 @@
           <div class="divider">
                <Menu></Menu>
                <div class="content">
-                    <div class="router">
-                        <router-link v-for="link in routePath" :to="link.route">
-                            {{ link.name }} / 
-                        </router-link>
-                    </div>
+                    <ul class="router-list">
+                        <li class="router-list__item" v-for="link in routePath">
+                             <router-link class="router-list__item__link" :to="link.route">
+                                {{ link.name }}
+                            </router-link>
+                        </li>
+                    </ul>
                     <router-view v-slot="{ Component }">
                         <transition name="slide" mode="out-in">
                             <component :key="$route.path" :is="Component" />
@@ -84,6 +86,32 @@ export default {
        width: 80%;
        z-index: 99;
        padding: 0 20px;
+    }
+    
+    .router-list {
+        height: 52px;
+        list-style-type: none;
+        display: flex;
+        align-items: center;
+        border-bottom: 2px solid #e5e5e5;
+        &__item {
+            padding: 0 10px;
+            &:not(:last-child) {
+                border-right: 2px solid #e5e5e5;
+            }
+            &:last-child {
+                text-decoration: underline;
+            }
+            &__link {
+                text-transform: uppercase;
+                text-decoration: none;
+                color: #000;
+                font-weight: 500;
+                &:hover {
+                    text-decoration: underline;
+                }
+            }
+        }
     }
 
     .slide-leave-active {
