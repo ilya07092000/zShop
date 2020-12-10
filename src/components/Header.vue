@@ -12,10 +12,7 @@
                         <button class="btn header__quality" @click="$emit('modal-toggler', true)">Quality department</button>
                    </div>
                    <div class="header__info__col">
-                       <button class="basket">
-                           <!-- {{ basket > 0 ? basket : 'Empty basket' }} -->
-                           {{basket}}
-                       </button>
+                        <Basket></Basket>
                    </div>
                 </div>
             </div>
@@ -24,6 +21,8 @@
 </template>
 
 <script>
+import Basket from './Basket.vue'
+
 export default {
     props: ['modal'],
     // methods: {
@@ -31,19 +30,8 @@ export default {
     //         this.$emit('show-modal');
     //     }
     // },
-    computed: {
-        basket() {
-            let basket = this.$store.getters.getBasket;
-
-            let sum = 0;
-
-            if(basket.length == 1) {
-                sum = basket[0].price * basket[0].qty;
-            } else if(basket.length) {
-                sum = basket.reduce((prev, current) => prev.price * prev.qty + current.price * current.qty);
-            }
-            return sum;
-        }
+    components: {
+        Basket,
     }
 }
 </script>
@@ -58,9 +46,8 @@ header {
 
 .header {
     &__inner {
-         display: flex;
+        display: flex;
         justify-content: center;
-        padding-top: 10px;
     }
     &__logo {
         font-family: 'Mukta', sans-serif;
@@ -84,5 +71,4 @@ header {
         margin-right: 20px;
     }
 }
-
 </style>

@@ -136,7 +136,10 @@ export default {
             this.$store.dispatch('addProduct', {
                 id: this.product.id,
                 price: this.product.price,
-                qty: 1
+                qty: 1,
+                productLink: this.$route.path,
+                productImg: this.product.images[0],
+                productName: this.product.title,
             });
         }
     },
