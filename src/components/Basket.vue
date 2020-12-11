@@ -5,26 +5,9 @@
             <p class="basket__text">{{ basket.sum > 0 ? basket.sum : 'Empty basket' }}</p>
         </div>
         <div class="basket__content">
-            <div class="basket__content__item" v-for="item in basket.basket">
-                <div class="basket__content__item__left">
-                    <router-link :to="item.productLink">
-                        <img class="basket__content__item__img" :src="item.productImg" alt="">
-                    </router-link>
-                </div>
-                <div class="basket__content__item__right">
-                    <router-link class="basket__content__item__title" :to="item.productLink">
-                        {{ item.productName }}
-                    </router-link>
-                    <p class="basket__content__item__price">{{ item.price }} грн</p>
-                    <p class="basket__content__item__qty">x {{ item.qty }}</p>
-                    <div class="delete__wrapper">
-                        <button class="btn delete">
-                            <span class="delete__line"></span>
-                        </button>
-                    </div>
-                </div>
-            </div>
-            
+            <Basket-item  v-for="item in basket.basket" :item="item">
+
+            </Basket-item>
             <div class="basket__content__footer">
                 <div class="basket__content__footer__col">
                     <p class="basket__content__footer__text">
@@ -43,38 +26,56 @@
 </template>
 
 <script>
+import BasketItem from './BasketItem.vue';
+
 export default {
-      computed: {
+    data() {
+        return {
+            basketLength: 0,
+        }
+    },
+    computed: {
         basket() {
             let basket = this.$store.getters.getBasket;
-
             let sum = 0;
+            this.basketLength = basket.length;
 
-            if(basket.length == 1) {
+            if(this.basketLength == 1) {
                 sum = basket[0].price * basket[0].qty;
-            } else if(basket.length) {
+            } else if(this.basketLength) {
                 sum = basket.reduce((prev, current) => prev.price * prev.qty + current.price * current.qty);
             }
             return {sum, basket};
         }
     },
     mounted() {
-        let basket = document.querySelector('.basket__wrapper');
-        let basketContent = document.querySelector('.basket__content');
+        window.addEventListener('click', this.toggleBasketContent);
+    },
+    methods: {
+        toggleBasketContent(event) {
+            let basket = document.querySelector('.basket__wrapper');
+            let basketContent = document.querySelector('.basket__content');
 
-        window.addEventListener('click', toggleBasketContent);
-
-        function toggleBasketContent(event) {
             let btn = event.target;
 
-            if (!btn.closest('.basket') && !event.target.closest('.show')) {
+            if(this.basketLength) {
+                if (!btn.closest('.basket') && !event.target.closest('.show')) {
+                    basket.classList.remove('show');
+                } 
+
+                if(!btn.closest('.basket')) return;
+
+                basket.classList.toggle('show');
+            } else {
                 basket.classList.remove('show');
-            } 
-
-            if(!btn.closest('.basket')) return;
-
-            basket.classList.toggle('show');
+            }
         }
+    },
+    beforeUnmount() {
+        window.removeEventListener('click', this.toggleBasketContent);
+    },
+    components: {
+        BasketItem,
     }
 }
 </script>
@@ -95,8 +96,14 @@ export default {
         align-items: center;
         cursor: pointer;
         height: 66px;
+        justify-content: center;
+        padding: 0 10px;
+        &:hover {
+            opacity: .8;
+        }
     &__wrapper {
         position: relative;
+        margin-right: 30px;
     }
     &__icon {
         display: block;
@@ -169,56 +176,5 @@ export default {
     right: 0;
     bottom: 0;
     z-index: -1;
-}
-
-.basket__content__item__img {
-    max-width: 50px;
-    width: 100%;
-    height: auto;
-    vertical-align: middle;
-}
-
-.basket__content__item {
-    display: flex;
-    justify-content: space-between;
-    border-bottom: 1px solid #e5e5e5;
-    padding: 10px 0;
-    &__left {
-        text-align: center;
-        width: 45%;
-    }
-    &__right {
-        width: 55%;
-        text-align: left;
-    }
-}
-
-.delete__wrapper {
-    text-align: right;
-    margin-top: -15px;
-}
-
-.delete {
-    width: 30px;
-    height: 30px;
-    &__line {
-        width: 20px;
-        height: 2px;
-        background-color: grey;
-        display: block;
-        transform: rotate(45deg);
-        position: relative;
-        margin: 0 auto;
-        &:before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: inherit;
-            transform: rotate(90deg);
-        }
-    }
 }
 </style>

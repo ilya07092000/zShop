@@ -19,6 +19,12 @@ export default createStore({
 			} else {
 				state.basket.push(product);
 			}
+		},
+		'DELETE_FROM_BASKET' (state, prodId) {
+			let prodIndex = state.basket.findIndex(prod => prod.id == prodId.id);
+			if(prodIndex != -1) {
+				state.basket.splice(prodIndex, 1);
+			}
 		}
   	},
   	actions: {
@@ -27,7 +33,10 @@ export default createStore({
     	},
     	addProduct: ({commit}, product) => {
       		commit('ADD_PRODUCT', product)
-    	},
+		},
+		deleteFromBasket: ({commit}, prodId) => {
+			commit('DELETE_FROM_BASKET', prodId)
+		},
 	},
   	getters: {
     	products: state => {
