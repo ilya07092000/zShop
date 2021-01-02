@@ -60,31 +60,4 @@ export default {
     text-align: right;
     margin-top: -15px;
 }
-
-.delete {
-    width: 30px;
-    height: 30px;
-    &__line {
-        width: 20px;
-        height: 2px;
-        background-color: grey;
-        display: block;
-        transform: rotate(45deg);
-        position: relative;
-        margin: 0 auto;
-        &:before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: inherit;
-            transform: rotate(90deg);
-        }
-    }
-    &:hover &__line {
-        background-color: #000;
-    }
-}
 </style>

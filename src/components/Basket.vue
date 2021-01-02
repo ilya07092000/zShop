@@ -18,7 +18,7 @@
                     </p>
                 </div>
                 <div class="basket__content__footer__col">
-                    <button class="btn basket-order-btn">Order</button>
+                    <router-link to="/order" class="basket-order-btn">Order</router-link>
                 </div>
             </div>
         </div>
@@ -58,7 +58,7 @@ export default {
 
             let btn = event.target;
 
-            if(this.basketLength) {
+            if(this.basketLength && this.$route.path != '/order') {
                 if (!btn.closest('.basket') && !event.target.closest('.show')) {
                     basket.classList.remove('show');
                 } 
@@ -148,8 +148,10 @@ export default {
     color: #a2c617;
     border: 2px solid #a2c617;
     // background-color: #a2c617;
-    padding: 8px 15px;
+    padding: 5px 15px;
     position: relative;
+    text-decoration: none;
+    display: inline-block;
     &::before {
         content: '';
         background-color: #a2c617;
