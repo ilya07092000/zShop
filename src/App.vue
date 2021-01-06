@@ -79,6 +79,10 @@ body {
         background-color: #000;
     }
 }
+
+.text-left {
+    text-align: left;
+}
 </style>
 
 

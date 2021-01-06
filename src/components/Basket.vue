@@ -1,7 +1,10 @@
 <template>
      <div class="basket__wrapper">
         <div class="basket">
-            <img class="basket__icon" src="../assets/img/icons/shopping-basket-solid.svg" alt="">
+            <div class="basket__icon-wrapper">
+                <p class="basket__qty" v-show="basket.basket.length">{{ basket.basket.length }}</p>
+                <img class="basket__icon" src="../assets/img/icons/shopping-basket-solid.svg" alt="">
+            </div>
             <p class="basket__text">{{ basket.sum > 0 ? basket.sum : 'Empty basket' }}</p>
         </div>
         <div class="basket__content">
@@ -107,12 +110,13 @@ export default {
     }
     &__icon {
         display: block;
-        max-width: 30px;
-        width: 100%;
-        margin-right: 10px;
+        width: 30px;
+        z-index: 9;
+        position: relative;
     }
     &__text {
         line-height: 1;
+        margin-left: 10px;
     }
     &__content {
         display: none;
@@ -139,6 +143,27 @@ export default {
             align-items: flex-end;
         }
     }
+    &__qty {
+        position: absolute;
+        top: -4px;
+        left: -4px;
+        z-index: 99;
+        width: 16px;
+        height: 16px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: #fff;
+        font-weight: 500;
+        border-radius: 50%;
+        background-color: red;
+        font-size: 13px;
+    }
+}
+
+.basket__icon-wrapper {
+    position: relative;
+    z-index: 9;
 }
 
 .basket-order-btn {

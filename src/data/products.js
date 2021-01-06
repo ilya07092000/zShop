@@ -1,6 +1,18 @@
 export default {
     computers: [
-        {id: '1', name: 'pc1', images: ['/img/products/hp1.jpg', '/img/products/hp2.jpg'], price: 14300, title: 'HP 290 G1 MT'},
+        {
+            id: '1', 
+            name: 'pc1', 
+            images: ['/img/products/hp1.jpg', '/img/products/hp2.jpg', '/img/products/hp3.jpg'], 
+            price: 
+            14300, title: 'HP 290 G1 MT',
+            feature: {
+                Proccessor: 'Intel Core i7-7700',
+                Chipset: 'Intel H110',
+                RAM: '4 GB',
+                HDD: '1 TB',
+            }
+        },
     ],
     components: {
         videocards: [

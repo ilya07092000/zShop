@@ -2,9 +2,11 @@
     <header>
         <div class="container">
             <div class="header__inner">
-                <router-link class="header__logo" to="/">
-                    Zshop
-                </router-link>
+                <div class="header__logo-wrapper text-left">
+                    <router-link class="header__logo" to="/">
+                        Zshop
+                    </router-link>
+                </div>
                 <div class="header__info">
                    <div class="header__info__col">
                         <a class="header__tel" href="tel:(067) 228-13-17">(067) 228-13-17</a>
@@ -55,8 +57,17 @@ header {
         letter-spacing: 0.10em;
         width: 30%;
         text-transform: uppercase;
-        color: black;
+        color: #332323;
         text-decoration: none;
+        font-weight: 700;
+        text-shadow: -2px -2px #fff;
+        &-wrapper {
+            width: calc(30% - 20px);
+            padding-right: 20px;
+        }
+        &:active {
+            text-shadow: unset;
+        }
     }
     &__info {
         width: 70%;

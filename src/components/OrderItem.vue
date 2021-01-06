@@ -17,7 +17,7 @@
                             </div>
                         </div>
                         <div class="order-item__btn">
-                            <button class="btn delete" @click="this.$store.dispatch('deleteFromBasket', {id: basketItem.id})">
+                            <button class="btn delete" @click="deleteFromBasket">
                                 <span class="delete__line"></span>
                             </button>
                         </div>
@@ -47,7 +47,7 @@ export default {
                     qty: this.qty
                 });
            }
-        }
+        },
     },
     props: ['basketItem'],
     methods: {
@@ -60,6 +60,14 @@ export default {
                 this.qty--;
             }
         },
+        deleteFromBasket() {
+            let conf = confirm("Are you sure?");
+            if(conf) {
+                this.$store.dispatch('deleteFromBasket', {
+                    id: this.basketItem.id
+                })
+            }
+        }
     },
 }
 </script>
@@ -82,6 +90,8 @@ export default {
     .order-item__title {
         margin-bottom: auto;
         padding-bottom: 10px;
+        font-size: 22px;
+        font-weight: 500;
     }
     .order-item__info {
         width: 75%;
