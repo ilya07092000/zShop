@@ -1,11 +1,16 @@
 <template>
-    <Header @modal-toggler="(value) => modal=value"></Header>
+    <Header @modal-toggler="modalToggler"></Header>
     <main>    
-        <div v-show="modal" class="modal__overflow">
+        <div v-show="qModal || cbModal" class="modal__overflow">
             <transition name="modal">
-                <Modal v-if="modal" @close-modal="value => modal=value">
+                <Qualitymodal v-if="qModal" @close-modal="value => qModal=value">
 
-                </Modal>
+                </Qualitymodal>
+            </transition>
+            <transition name="modal">
+                <Cbmodal v-if="cbModal" @close-modal="value => cbModal=value">
+
+                </Cbmodal>
             </transition>
         </div>
 
@@ -34,23 +39,26 @@
 <script>
 import Header from '@/components/Header';
 import Menu from '@/components/Menu';
-import Modal from '@/components/Modal'
+import Qualitymodal from '@/components/QualityModal';
+import Cbmodal from '@/components/CbModal'
 
 export default {
     data() {
         return {
-            modal: false,
+            qModal: false,
+            cbModal: false,
             routePath: [],
         }
     },
     components: {
         Header,
         Menu,
-        Modal
+        Qualitymodal,
+        Cbmodal
     },
     methods: {
-        modalToggler(value, xq) {
-            this.modal = value;
+        modalToggler(value) {
+            this[value.name] = true;
         }
     },
     watch: {

@@ -73,6 +73,7 @@
 
 <script>
 import orderItem from '../components/OrderItem.vue';
+import { Field, Form } from 'vee-validate';
 
 export default {
     computed: {
@@ -82,6 +83,8 @@ export default {
     },
     components: {
         orderItem,
+         Field,
+        Form,
     }
 }
 </script>
