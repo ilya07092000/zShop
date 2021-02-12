@@ -10,8 +10,8 @@
                 <div class="header__info">
                    <div class="header__info__col">
                         <a class="header__tel" href="tel:(067) 228-13-17">(067) 228-13-17</a>
-                        <button class="btn header__cb" @click="$emit('modal-toggler', {name: 'cbModal', value: true})">Callback</button>
-                        <button class="btn header__quality" @click="$emit('modal-toggler', {name: 'qModal', value: true})">Quality department</button>
+                        <button class="btn header__cb" @click="$emit('modal-toggler', 'Cbmodal')">Callback</button>
+                        <button class="btn header__quality" @click="$emit('modal-toggler', 'QualityModal')">Quality department</button>
                    </div>
                    <div class="header__info__col">
                         <Basket></Basket>
