@@ -4,8 +4,6 @@
            <button class="close" @click="$emit('close-modal', false)">
                <span class="close__line"></span>
            </button>
-           <p>Call back request</p>
-           {{currModal}}
            <component :is="currModal">
 
            </component>

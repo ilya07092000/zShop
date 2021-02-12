@@ -1,0 +1,118 @@
+.form {
+    &__input {
+        width: 100%;
+        font-size: 16px;
+        padding: 5px;
+    }
+    &__label {
+        display: block;
+    }
+}
+
+.form__radio-wrap {
+    margin: 20px 0;
+}
+
+.form__radio-wrap input[type=radio] {
+    display: none;
+}
+
+.form__radio-wrap label {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    position: relative;
+    padding-left: 40px;
+    margin-right: 0;
+    user-select: none;
+    color: grey;
+    font-weight: 500;
+    min-height: 30px;
+}
+
+.form__radio-wrap label:before {
+    content: "";
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    border: 1px solid #d3d3d3;
+    border-radius: 50%;
+}
+
+ .form__radio-wrap label:after {
+    content: "";
+    display: inline-block;
+    width: 28px;
+    height: 28px;
+    position: absolute;
+    left: 1px;
+    top: 1px;
+    border-radius: 50%;
+}
+
+.form__radio-wrap input[type=radio]:checked + label:after {
+    background-color: #a2c617;
+    border: 4px solid #fff;
+    color: #000;
+}
+
+.form__radio-wrap input[type=radio]:checked + label {
+    color: #000;
+}
+
+.form__radio-wrap:hover input[type=radio] + label:after {
+    background-color: #c7c2c2;
+    border: 4px solid #fff;
+}
+
+.form__radio-wrap:hover input[type=radio]:checked + label:after {
+    background-color: #a2c617;
+    border: 4px solid #fff;
+    color: #000;
+}
+
+.form__checkbox-wrap {
+    & input {
+        display: none;
+    }
+    & label {
+        opacity: .6;
+        padding-left: 40px;
+        display: flex;
+        position: relative;
+        cursor: pointer;
+        &::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 28px;
+            height: 28px;
+            border: 1px solid grey;
+            border-radius: 3px;
+        }
+        &::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 28px;
+            height: 28px;
+        }
+    }
+}
+
+.form__checkbox-wrap input[type=checkbox]:checked + label::after {
+    background: url('../assets/img/icons/check-solid.svg');
+}
+
+.form__checkbox-wrap input:checked + label {
+    opacity: 1;
+}
+
+.form__checkbox-wrap:hover label {
+    opacity: .8;
+}
