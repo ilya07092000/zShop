@@ -1,10 +1,10 @@
 <template>
    <div class="modal">
        <div class="modal__inner">
-           <button class="close" @click="$emit('close-modal', false)">
+           <button class="close" @click="closeModal">
                <span class="close__line"></span>
            </button>
-           <component :is="currModal">
+           <component :is="currModal" @submit-handler="submitHandler">
 
            </component>
        </div>
@@ -13,11 +13,22 @@
 
 <script>
     import Cbmodal from '../components/CbModal.vue';
+    import QualityModal from '../components/QualityModal.vue';
 
     export default {
         props: ['currModal'],
         components: {
             Cbmodal,
+            QualityModal,
+        },
+        methods: {
+            submitHandler() {
+                this.closeModal(false);
+                this.$emit('submit-handler');
+            },
+            closeModal() {
+                this.$emit('closeModal', false);
+            }
         }
     }
 </script>

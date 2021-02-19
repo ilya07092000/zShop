@@ -1,9 +1,23 @@
 <template>
     <Header @modal-toggler="modalToggler"></Header>
-    <main>    
+    <main>  
+        <transition name="modal">
+            <div class="result-container" v-show="resultDialog">
+                <ResultDialog>
+
+                </ResultDialog>
+            </div>
+        </transition>
+
         <div v-show="modal" class="modal__overflow">
             <transition name="modal">
-                <Modal v-if="modal" @close-modal="value => modal=value" :currModal=currModal>
+                <Modal 
+                    v-if="modal" 
+                    @close-modal="value => modal=value" 
+                    :currModal=currModal 
+                    :resultDialog="resultDialog" 
+                    @submit-handler="submitHandler"
+                >
 
                 </Modal>
             </transition>
@@ -35,6 +49,7 @@
 import Header from '@/components/Header';
 import Menu from '@/components/Menu';
 import Modal from '@/components/Modal';
+import ResultDialog from '@/components/ResultDialog';
 
 export default {
     data() {
@@ -42,18 +57,25 @@ export default {
             modal: false,
             currModal: '',
             routePath: [],
+            resultDialog: false,
         }
     },
     components: {
         Header,
         Menu,
         Modal,
+        ResultDialog,
     },
     methods: {
         modalToggler(value) {
             this.modal = true;
             this.currModal = value;
-            console.log(this.currModal);
+        },
+        submitHandler() {
+            this.resultDialog = true;
+            setTimeout(() => {
+                this.resultDialog = false;
+            }, 1500);
         }
     },
     watch: {
@@ -132,6 +154,11 @@ export default {
         overflow: hidden;
     }
 
+    .result-container {
+        z-index: 999999;
+        position: relative;
+    }
+
     @keyframes slide-in {
         0% {
             transform: scale(1), translateX(0);
@@ -167,7 +194,7 @@ export default {
 
     .modal-enter-from {
         opacity: 0;
-        transform: translateY(-100px);
+        transform: translateY(-50px);
     }
 
     .modal-enter-to {
@@ -182,7 +209,7 @@ export default {
 
     .modal-leave-to {
         opacity: 0;
-        transform: translateY(-100px);
+        transform: translateY(-50px);
     }
 </style>
 
