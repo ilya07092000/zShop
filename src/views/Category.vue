@@ -5,7 +5,9 @@
         </div>
         <div class="category__list" v-if="categories">
             <div class="category__list__item">
-                <CategoryItem v-for="(category, name) in categoryProds" :category="category" :name="name" :key="name"></CategoryItem>
+                <CategoryItem v-for="(category, name) in categoryProds" :category="category" :name="name" :key="name">
+                    
+                </CategoryItem>
             </div>
         </div>
         <Empty v-else type="category"></Empty>
@@ -24,6 +26,7 @@ export default {
         },
         categoryProds() {
             let category = this.$route.params.category;
+            console.log(this.$store.getters.getProductsByCategory(category));
             return this.$store.getters.getProductsByCategory(category);
         }
     },

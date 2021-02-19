@@ -82,4 +82,27 @@ header {
         margin-right: 20px;
     }
 }
+    .btn {
+        font-size: 15px;
+        font-weight: 600;
+        color: rgb(70, 70, 70);
+        text-transform: uppercase;
+        position: relative;
+        outline: none;
+        &:before {
+            position: absolute;
+            content: '';
+            bottom: -5px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: rgb(70, 70, 70);
+            transform: scale(0);
+            transform-origin: center center;
+            transition: transform .1s linear;
+        }
+        &:hover::before {
+            transform: scale(1);
+        }
+    }
 </style>

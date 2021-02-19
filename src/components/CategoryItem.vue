@@ -1,10 +1,10 @@
 <template>
-    <router-link 
-        v-for="(value, key) in category" 
-        :key="key"
+    <router-link
         class="category__link"
-        :to="{name: 'products', params: {products: name }}">
+        :to="{name: 'products', params: {products: name }}"
+    >
         {{ name }}
+       <b> {{ catLength }}</b>
     </router-link>
 </template>
 
@@ -12,8 +12,8 @@
 export default {
     props: ['category', 'name'],
     computed: {
-        categories() {
-            return this.$route.params.products
+        catLength() {
+            return this.category.length
         }
     }
 }
